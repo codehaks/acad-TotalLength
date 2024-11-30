@@ -8,31 +8,36 @@
         Title="{Binding Title}" d:Title="ZLenght" Height="350" Width="250" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
     <Grid Margin="10">
         <StackPanel Orientation="Vertical">
-        <!-- First GroupBox -->
-        <GroupBox Header="Object Types" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="90">
-            <StackPanel Margin="10">
-                <CheckBox Content="Lines" Name="chkLines"/>
-                <CheckBox Content="PolyLines" Name="chkPolyLines"/>
-                <CheckBox Content="Arcs" Name="chkArcs"/>
+            <!-- First GroupBox -->
+            <GroupBox Header="Object Types" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="90">
+                <StackPanel Margin="10">
+                    <CheckBox Content="Lines" Name="chkLines"/>
+                    <CheckBox Content="PolyLines" Name="chkPolyLines"/>
+                    <CheckBox Content="Arcs" Name="chkArcs"/>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- Button under the first GroupBox -->
+            <Button Content="Select Objects" 
+                    Command="{Binding SelectCommand}"
+                    Width="120" 
+                    Height="30" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    Margin="10"/>
+
+            <!-- Second GroupBox -->
+            <GroupBox Header="Total Length" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="100" Margin="10">
+                <StackPanel Margin="10">
+                    <TextBox Text="{Binding TotalLength,FallbackValue=0}" IsReadOnly="True" Width="160"/>
+                    <Label Content="{Binding SelectedObjectCount, StringFormat=Selected Items: {0}}" />
+                </StackPanel>
+            </GroupBox>
+
+            <StackPanel  VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+                <Button Content="OK" Command="{Binding OkCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Width="75" Margin="0,0,10,0" />
+                <Button Content="Cancel" Command="{Binding CancelCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Width="75" />
             </StackPanel>
-        </GroupBox>
-
-        <!-- Button under the first GroupBox -->
-        <Button Content="Select Objects" Name="btnSelectObjects" Width="120" Height="30" 
-                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"/>
-
-        <!-- Second GroupBox -->
-        <GroupBox Header="Total Length" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="100" Margin="10">
-            <StackPanel Margin="10">
-                <TextBox Name="txtTotalLength" IsReadOnly="True" Text="0.0" Width="160"/>
-                <Label Content="Selected Items: 0" Name="lblSelectedItems"/>
-            </StackPanel>
-        </GroupBox>
-
-        <StackPanel  VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
-            <Button Content="OK" Command="{Binding OkCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Width="75" Margin="0,0,10,0" />
-            <Button Content="Cancel" Command="{Binding CancelCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Width="75" />
-        </StackPanel>
         </StackPanel>
     </Grid>
 </Window>
