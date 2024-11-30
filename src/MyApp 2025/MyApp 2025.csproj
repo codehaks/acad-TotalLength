@@ -13,23 +13,23 @@
 
   <ItemGroup>
     <Reference Include="accoremgd">
-      <HintPath>..\..\..\..\..\Program Files\Autodesk\AutoCAD 2025\accoremgd.dll</HintPath>
+      <HintPath>C:\Program Files\Autodesk\AutoCAD 2025\accoremgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Acdbmgd">
-      <HintPath>..\..\..\..\..\Program Files\Autodesk\AutoCAD 2025\acdbmgd.dll</HintPath>
+      <HintPath>C:\Program Files\Autodesk\AutoCAD 2025\acdbmgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Acmgd">
-      <HintPath>..\..\..\..\..\Program Files\Autodesk\AutoCAD 2025\acmgd.dll</HintPath>
+      <HintPath>C:\Program Files\Autodesk\AutoCAD 2025\acmgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="AcWindows">
-      <HintPath>..\..\..\..\..\Program Files\Autodesk\AutoCAD 2025\AcWindows.dll</HintPath>
+      <HintPath>C:\Program Files\Autodesk\AutoCAD 2025\AcWindows.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="AdWindows">
-      <HintPath>..\..\..\..\..\Program Files\Autodesk\AutoCAD 2025\AdWindows.dll</HintPath>
+      <HintPath>C:\Program Files\Autodesk\AutoCAD 2025\AdWindows.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
