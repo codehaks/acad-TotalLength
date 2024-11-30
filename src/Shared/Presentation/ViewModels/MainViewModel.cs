@@ -18,7 +18,7 @@ public class MainViewModel : INotifyPropertyChanged
     public ICommand OkCommand { get; }
     public ICommand CancelCommand { get; }
 
-    private string _title = "My Plugin";
+    private string _title = "ZLength 1.0";
 
     public string Title
     {
@@ -40,7 +40,7 @@ public class MainViewModel : INotifyPropertyChanged
 
     public string Version
     {
-        get => DateTime.Now.ToString("G");
+        get => DateTime.Now.ToString("HH-mm-ss");
     }
 
     // Example: Property to update when "OK" is pressed
