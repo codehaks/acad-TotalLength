@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)AcadApplication.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AcadCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)application\SelectService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Commands\DrawCircleCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\RelayCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\Ribbons\RibbonMainCommand.cs" />
@@ -29,5 +30,8 @@
   <ItemGroup>
     <Resource Include="$(MSBuildThisFileDirectory)Resources\a_large.png" />
     <Resource Include="$(MSBuildThisFileDirectory)Resources\a_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Application\" />
   </ItemGroup>
 </Project>

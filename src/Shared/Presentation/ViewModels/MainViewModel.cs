@@ -1,6 +1,7 @@
 ﻿using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 using MyApp.Common;
+using MyApp.Services;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -13,6 +14,8 @@ namespace MyApp.Presentation.ViewModels;
 
 public class MainViewModel : INotifyPropertyChanged
 {
+    private readonly SelectService _selectService;
+
     public MainViewModel()
     {
         OkCommand = new RelayCommand<Window>(ExecuteOkCommand, CanExecuteOkCommand);
@@ -21,6 +24,7 @@ public class MainViewModel : INotifyPropertyChanged
         SelectCommand = new RelayCommand<object>(ExecuteSelectCommand);
 
         _statusMessage = "Started";
+        _selectService = new SelectService();
     }
 
     // --- Properties --------------------------------------------------------
@@ -100,56 +104,10 @@ public class MainViewModel : INotifyPropertyChanged
 
     private void ExecuteSelectCommand(object parameter)
     {
-        try
-        {
-            // Get the current document and editor
-            var document = Application.DocumentManager.MdiActiveDocument;
-            var editor = document.Editor;
-
-            // Define a selection filter for specific object types
-            var filter = new SelectionFilter(new[]
-            {
-                new TypedValue((int)DxfCode.Start, "LINE,ARC,LWPOLYLINE")
-            });
-
-            // Prompt the user to select objects
-            var result = editor.GetSelection(filter);
-
-            if (result.Status == PromptStatus.OK)
-            {
-                var selectedObjects = result.Value;
-                SelectedObjectCount = selectedObjects.Count;
-
-                // Calculate total length
-                double totalLength = 0.0;
-
-                using (var transaction = document.TransactionManager.StartTransaction())
-                {
-                    foreach (var id in selectedObjects.GetObjectIds())
-                    {
-                        var entity = transaction.GetObject(id, OpenMode.ForRead) as Autodesk.AutoCAD.DatabaseServices.Entity;
-
-                        if (entity is Autodesk.AutoCAD.DatabaseServices.Curve curve)
-                        {
-                            totalLength += curve.GetDistanceAtParameter(curve.EndParam) - curve.GetDistanceAtParameter(curve.StartParam);
-                        }
-                    }
-
-                    transaction.Commit();
-                }
-
-                TotalLength = totalLength;
-                StatusMessage = $"Selected {SelectedObjectCount} objects. Total Length: {TotalLength:F2}";
-            }
-            else
-            {
-                StatusMessage = "No objects selected.";
-            }
-        }
-        catch (Exception ex)
-        {
-            StatusMessage = $"Error: {ex.Message}";
-        }
+        var (count, length, message) = _selectService.SelectObjects();
+        SelectedObjectCount = count;
+        TotalLength = length;
+        StatusMessage = message;
     }
     #endregion
 
