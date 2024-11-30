@@ -1,6 +1,7 @@
 ﻿using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 using MyApp.Common;
+using MyApp.Core;
 using MyApp.Services;
 using System;
 using System.ComponentModel;
@@ -25,6 +26,24 @@ public class MainViewModel : INotifyPropertyChanged
 
         _statusMessage = "Started";
         _selectService = new SelectService();
+
+        SelectOptions = new SelectOptions
+        {
+            SelectLines = false,
+            SelectPolyLines = false,
+            SelectArcs = false
+        };
+    }
+
+    private SelectOptions _selectOptions;
+    public SelectOptions SelectOptions
+    {
+        get => _selectOptions;
+        set
+        {
+            _selectOptions = value;
+            OnPropertyChanged();
+        }
     }
 
     // --- Properties --------------------------------------------------------
@@ -104,7 +123,7 @@ public class MainViewModel : INotifyPropertyChanged
 
     private void ExecuteSelectCommand(object parameter)
     {
-        var (count, length, message) = _selectService.SelectObjects();
+        var (count, length, message) = _selectService.SelectObjects(SelectOptions);
         SelectedObjectCount = count;
         TotalLength = length;
         StatusMessage = message;

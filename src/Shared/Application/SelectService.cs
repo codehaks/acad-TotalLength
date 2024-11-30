@@ -1,13 +1,14 @@
 using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
+using MyApp.Core;
 using System;
 
 namespace MyApp.Services;
 
 public class SelectService
 {
-    public (int SelectedCount, double TotalLength, string Message) SelectObjects()
+    public (int SelectedCount, double TotalLength, string Message) SelectObjects(SelectOptions selectOptions)
     {
         try
         {
@@ -18,7 +19,7 @@ public class SelectService
             // Define a selection filter for specific object types
             var filter = new SelectionFilter(new[]
             {
-                new TypedValue((int)DxfCode.Start, "LINE,ARC,LWPOLYLINE")
+                new TypedValue((int)DxfCode.Start,selectOptions.ToString())
             });
 
             // Prompt the user to select objects

@@ -11,9 +11,9 @@
             <!-- First GroupBox -->
             <GroupBox Header="Object Types" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="90">
                 <StackPanel Margin="10">
-                    <CheckBox Content="Lines" Name="chkLines"/>
-                    <CheckBox Content="PolyLines" Name="chkPolyLines"/>
-                    <CheckBox Content="Arcs" Name="chkArcs"/>
+                    <CheckBox Content="Lines" IsChecked="{Binding SelectOptions.SelectLines}" />
+                    <CheckBox Content="PolyLines" IsChecked="{Binding SelectOptions.SelectPolyLines}" />
+                    <CheckBox Content="Arcs" IsChecked="{Binding SelectOptions.SelectArcs}" />
                 </StackPanel>
             </GroupBox>
 
