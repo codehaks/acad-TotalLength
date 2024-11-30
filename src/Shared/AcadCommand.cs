@@ -6,7 +6,7 @@ namespace MyApp.Commands;
 
 public class AcadCommand
 {
-    [CommandMethod("ShowMainWindow")]
+    [CommandMethod("ZLen")]
     public void ShowMainWindow()
     {
         var window = new MainWindow();

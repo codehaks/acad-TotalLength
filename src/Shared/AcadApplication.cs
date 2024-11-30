@@ -6,7 +6,7 @@ public class AcadApplication : IExtensionApplication
 {
     public void Initialize()
     {
-        //RibbonManager.AddRibbons();
+        RibbonManager.AddRibbons();
     }
 
     public void Terminate()

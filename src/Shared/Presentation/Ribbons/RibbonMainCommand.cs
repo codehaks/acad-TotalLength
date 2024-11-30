@@ -10,7 +10,7 @@ public class RibbonMainCommand : System.Windows.Input.ICommand
     public void Execute(object parameter)
     {
         // Invoke your custom AutoCAD command here
-        Autodesk.AutoCAD.ApplicationServices.Core.Application.DocumentManager.MdiActiveDocument.SendStringToExecute("ShowMainWindow ", true, false, false);
+        Autodesk.AutoCAD.ApplicationServices.Core.Application.DocumentManager.MdiActiveDocument.SendStringToExecute("Zlen ", true, false, false);
     }
 
     public event EventHandler CanExecuteChanged;

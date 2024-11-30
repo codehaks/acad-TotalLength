@@ -29,14 +29,16 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="$(MSBuildThisFileDirectory)Resources\a_large.png" />
-    <Resource Include="$(MSBuildThisFileDirectory)Resources\a_small.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Application\" />
     <Folder Include="$(MSBuildThisFileDirectory)Core\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="$(MSBuildThisFileDirectory)Resources\select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="$(MSBuildThisFileDirectory)Resources\small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="$(MSBuildThisFileDirectory)Resources\large.png" />
   </ItemGroup>
 </Project>

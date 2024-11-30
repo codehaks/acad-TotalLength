@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyApp.Presentation.Views"
         mc:Ignorable="d"
+        Icon="pack://application:,,,/MyApp;component/Resources/large.png"
         Title="{Binding Title}" d:Title="ZLenght" Height="360" Width="240" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
     <Grid Margin="10">
         <StackPanel Orientation="Vertical">

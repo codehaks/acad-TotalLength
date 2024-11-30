@@ -9,7 +9,7 @@ using RibbonTab = Autodesk.Windows.RibbonTab;
 
 public static class RibbonManager
 {
-    private const string RibbonTabId = "MY_CUSTOM_TAB";
+    private const string RibbonTabId = "ZeeCAD_TAB";
     public static void AddRibbons()
     {
 
@@ -19,13 +19,13 @@ public static class RibbonManager
         //RibbonTab existingTab = ribbonControl.FindTab(RibbonTabId);
         //if (existingTab != null)
         //{
-           
+
         //    return;
         //}
 
         RibbonTab ribbonTab = new RibbonTab
         {
-            Title = "My Tab",
+            Title = "ZeeCAD",
             Id = RibbonTabId
 
         };
@@ -34,7 +34,7 @@ public static class RibbonManager
 
         RibbonPanelSource ribbonPanelSource = new RibbonPanelSource
         {
-            Title = "My Commands"
+            Title = "ZeeCAD Tools"
         };
         RibbonPanel ribbonPanel = new RibbonPanel
         {
@@ -46,14 +46,14 @@ public static class RibbonManager
 
         RibbonButton myButton = new RibbonButton
         {
-            Text = "Show MainWindow",
+            Text = "Total Length",
             Orientation = System.Windows.Controls.Orientation.Vertical,
 
             ShowText = true,
             ShowImage = true,
             Size = RibbonItemSize.Large,
-            LargeImage = new BitmapImage(new Uri("pack://application:,,,/MyApp;component/Resources/a_large.png", UriKind.RelativeOrAbsolute)),// MyApp.Properties.Images.a_large.ToBitmapImage(),
-            Image = new BitmapImage(new Uri("pack://application:,,,/MyApp;component/Resources/a_small.png", UriKind.RelativeOrAbsolute)),//MyApp.Properties.Images.a_small.ToBitmapImage(),
+            LargeImage = new BitmapImage(new Uri("pack://application:,,,/MyApp;component/Resources/large.png", UriKind.RelativeOrAbsolute)),// MyApp.Properties.Images.a_large.ToBitmapImage(),
+            Image = new BitmapImage(new Uri("pack://application:,,,/MyApp;component/Resources/small.png", UriKind.RelativeOrAbsolute)),//MyApp.Properties.Images.a_small.ToBitmapImage(),
             CommandHandler = new RibbonMainCommand(),
 
         };
