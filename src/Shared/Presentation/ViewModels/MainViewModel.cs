@@ -29,9 +29,9 @@ public class MainViewModel : INotifyPropertyChanged
 
         SelectOptions = new SelectOptions
         {
-            SelectLines = false,
-            SelectPolyLines = false,
-            SelectArcs = false
+            SelectLines = true,
+            SelectPolyLines = true,
+            SelectArcs = true
         };
     }
 
@@ -125,7 +125,7 @@ public class MainViewModel : INotifyPropertyChanged
     {
         var (count, length, message) = _selectService.SelectObjects(SelectOptions);
         SelectedObjectCount = count;
-        TotalLength = length;
+        TotalLength = Math.Round(length,2);
         StatusMessage = message;
     }
     #endregion

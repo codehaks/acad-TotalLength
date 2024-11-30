@@ -36,4 +36,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)Application\" />
     <Folder Include="$(MSBuildThisFileDirectory)Core\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="$(MSBuildThisFileDirectory)Resources\select.png" />
+  </ItemGroup>
 </Project>

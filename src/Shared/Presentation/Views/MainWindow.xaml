@@ -5,38 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyApp.Presentation.Views"
         mc:Ignorable="d"
-        Title="{Binding Title}" d:Title="ZLenght" Height="350" Width="250" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+        Title="{Binding Title}" d:Title="ZLenght" Height="360" Width="240" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
     <Grid Margin="10">
         <StackPanel Orientation="Vertical">
             <!-- First GroupBox -->
-            <GroupBox Header="Object Types" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="90">
+            <GroupBox Header="Object Types" HorizontalAlignment="Left" Width="180" Height="90" Margin="10">
                 <StackPanel Margin="10">
                     <CheckBox Content="Lines" IsChecked="{Binding SelectOptions.SelectLines}" />
                     <CheckBox Content="PolyLines" IsChecked="{Binding SelectOptions.SelectPolyLines}" />
                     <CheckBox Content="Arcs" IsChecked="{Binding SelectOptions.SelectArcs}" />
                 </StackPanel>
             </GroupBox>
-
-            <!-- Button under the first GroupBox -->
-            <Button Content="Select Objects" 
-                    Command="{Binding SelectCommand}"
-                    Width="120" 
-                    Height="30" 
-                    HorizontalAlignment="Left" 
-                    VerticalAlignment="Top" 
-                    Margin="10"/>
+            <Button Command="{Binding SelectCommand}"
+        Width="175" 
+        Height="30" 
+        HorizontalAlignment="Left" 
+        Margin="10">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="pack://application:,,,/MyApp;component/Resources/select.png" 
+               Width="16" 
+               Height="16" 
+               Margin="0,0,5,0"/>
+                    <TextBlock VerticalAlignment="Center">Select Objects</TextBlock>
+                </StackPanel>
+            </Button>
 
             <!-- Second GroupBox -->
-            <GroupBox Header="Total Length" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="100" Margin="10">
+            <GroupBox Header="Total Length" HorizontalAlignment="Left" Width="180" Height="90" Margin="10">
                 <StackPanel Margin="10">
-                    <TextBox Text="{Binding TotalLength,FallbackValue=0}" IsReadOnly="True" Width="160"/>
-                    <Label Content="{Binding SelectedObjectCount, StringFormat=Selected Items: {0}}" />
+                    <TextBox Text="{Binding TotalLength,FallbackValue=0}" IsReadOnly="True" Width="130" FontSize="16"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Selected Items :</Label>
+                        <Label Content="{Binding SelectedObjectCount}" d:Content="0"/>
+                    </StackPanel>
                 </StackPanel>
             </GroupBox>
 
-            <StackPanel  VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
-                <Button Content="OK" Command="{Binding OkCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Width="75" Margin="0,0,10,0" />
-                <Button Content="Cancel" Command="{Binding CancelCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Width="75" />
+            <StackPanel  VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+                <!--<Button Content="OK" Command="{Binding OkCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Width="75" Margin="0,0,10,0" />-->
+                <Button Content="Close" Command="{Binding CancelCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Width="75" />
             </StackPanel>
         </StackPanel>
     </Grid>
