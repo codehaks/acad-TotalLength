@@ -52,8 +52,8 @@ public static class RibbonManager
             ShowText = true,
             ShowImage = true,
             Size = RibbonItemSize.Large,
-            LargeImage = new BitmapImage(new Uri("pack://application:,,,/MyApp;component/Resources/large.png", UriKind.RelativeOrAbsolute)),// MyApp.Properties.Images.a_large.ToBitmapImage(),
-            Image = new BitmapImage(new Uri("pack://application:,,,/MyApp;component/Resources/small.png", UriKind.RelativeOrAbsolute)),//MyApp.Properties.Images.a_small.ToBitmapImage(),
+            LargeImage = new BitmapImage(new Uri("pack://application:,,,/ZeeCAD.TotalLength;component/Resources/large.png", UriKind.RelativeOrAbsolute)),// MyApp.Properties.Images.a_large.ToBitmapImage(),
+            Image = new BitmapImage(new Uri("pack://application:,,,/ZeeCAD.TotalLength;component/Resources/small.png", UriKind.RelativeOrAbsolute)),//MyApp.Properties.Images.a_small.ToBitmapImage(),
             CommandHandler = new RibbonMainCommand(),
 
         };
