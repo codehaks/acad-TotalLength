@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyApp.Properties {
+namespace TotalLength.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

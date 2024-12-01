@@ -2,11 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0-windows</TargetFramework>
-    <RootNamespace>MyApp</RootNamespace>
+    <RootNamespace>TotalLength</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ImplicitUsings>enable</ImplicitUsings>
-    <AssemblyName>MyApp</AssemblyName>
+    <AssemblyName>ZeeCAD.TotalLength</AssemblyName>
+    <PlatformTarget>x64</PlatformTarget>
+    <Title>TotalLength</Title>
+    <Description>ZeeCAD Total Length Calculator</Description>
+    <Copyright>ZeeCAD</Copyright>
   </PropertyGroup>
 
   <Import Project="..\Shared\Shared.projitems" Label="Shared" />
