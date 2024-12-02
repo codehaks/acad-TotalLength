@@ -1,5 +1,6 @@
 # CodeHaks TotalLength Add-On  
 
+(assets/icon.png)  
 **CodeHaks TotalLength** is an AutoCAD add-on designed to streamline your workflow by calculating the total length of selected objects such as lines, polylines, and arcs. This tool is compatible with **AutoCAD 2024** and **AutoCAD 2025**, providing an intuitive interface to manage selections and quickly gather essential object data.
 
 ---
@@ -38,12 +39,10 @@
 ## Screenshots  
 
 ### Main Window  
-![Main Window Placeholder](#)  
-*A placeholder for the main window screenshot.*  
+![Main Window Placeholder](assets/main-window.png)   
 
 ### AutoCAD Workflow Example  
-![AutoCAD Workflow Placeholder](#)  
-*A placeholder for the AutoCAD workflow screenshot showing selected objects and the add-on in action.*  
+![AutoCAD Workflow Placeholder](assets/acad-example.jpg)  
 
 ---
 
