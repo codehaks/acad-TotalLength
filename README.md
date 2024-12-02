@@ -28,6 +28,17 @@
 5. Click **Select Objects** to begin selection.  
 6. View the total length and object count in the **Total Length** panel.  
 
+### Commands  
+The following command is available in **CodeHaks TotalLength**:  
+
+- **ZLen**: Launches the main window of the add-on.  
+
+#### How to Use  
+1. In AutoCAD, type `ZLen` in the command prompt.  
+2. Press `Enter` to open the **CodeHaks TotalLength** main window.  
+3. Use the tool to select objects and view the total length and object count.  
+
+
 ---
 
 ## Requirements  
