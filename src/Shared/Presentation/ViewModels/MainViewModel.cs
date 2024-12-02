@@ -49,7 +49,7 @@ public class MainViewModel : INotifyPropertyChanged
     // --- Properties --------------------------------------------------------
 
     #region Title
-    private string _title = "ZLength 1.0";
+    private string _title = "Total Length 1.0";
 
     public string Title
     {

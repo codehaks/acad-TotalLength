@@ -9,23 +9,23 @@ using RibbonTab = Autodesk.Windows.RibbonTab;
 
 public static class RibbonManager
 {
-    private const string RibbonTabId = "ZeeCAD_TAB";
+    private const string RibbonTabId = "Codehaks_TAB";
     public static void AddRibbons()
     {
 
         RibbonControl ribbonControl = Autodesk.Windows.ComponentManager.Ribbon;
         if (ribbonControl == null) return;
 
-        //RibbonTab existingTab = ribbonControl.FindTab(RibbonTabId);
-        //if (existingTab != null)
-        //{
+        RibbonTab existingTab = ribbonControl.FindTab(RibbonTabId);
+        if (existingTab != null)
+        {
 
-        //    return;
-        //}
+            return;
+        }
 
         RibbonTab ribbonTab = new RibbonTab
         {
-            Title = "ZeeCAD",
+            Title = "Codehaks",
             Id = RibbonTabId
 
         };
@@ -34,7 +34,7 @@ public static class RibbonManager
 
         RibbonPanelSource ribbonPanelSource = new RibbonPanelSource
         {
-            Title = "ZeeCAD Tools"
+            Title = "Codehaks Tools"
         };
         RibbonPanel ribbonPanel = new RibbonPanel
         {
@@ -52,8 +52,8 @@ public static class RibbonManager
             ShowText = true,
             ShowImage = true,
             Size = RibbonItemSize.Large,
-            LargeImage = new BitmapImage(new Uri("pack://application:,,,/ZeeCAD.TotalLength;component/Resources/large.png", UriKind.RelativeOrAbsolute)),// MyApp.Properties.Images.a_large.ToBitmapImage(),
-            Image = new BitmapImage(new Uri("pack://application:,,,/ZeeCAD.TotalLength;component/Resources/small.png", UriKind.RelativeOrAbsolute)),//MyApp.Properties.Images.a_small.ToBitmapImage(),
+            LargeImage = new BitmapImage(new Uri("pack://application:,,,/codehaks.TotalLength;component/Resources/large.png", UriKind.RelativeOrAbsolute)),// MyApp.Properties.Images.a_large.ToBitmapImage(),
+            Image = new BitmapImage(new Uri("pack://application:,,,/codehaks.TotalLength;component/Resources/small.png", UriKind.RelativeOrAbsolute)),//MyApp.Properties.Images.a_small.ToBitmapImage(),
             CommandHandler = new RibbonMainCommand(),
 
         };

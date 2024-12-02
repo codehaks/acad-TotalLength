@@ -6,11 +6,11 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ImplicitUsings>enable</ImplicitUsings>
-    <AssemblyName>ZeeCAD.TotalLength</AssemblyName>
+    <AssemblyName>codehaks.TotalLength</AssemblyName>
     <PlatformTarget>x64</PlatformTarget>
     <Title>TotalLength</Title>
     <Description>ZeeCAD Total Length Calculator</Description>
-    <Copyright>ZeeCAD</Copyright>
+    <Copyright>codehaks</Copyright>
   </PropertyGroup>
 
   <Import Project="..\Shared\Shared.projitems" Label="Shared" />
