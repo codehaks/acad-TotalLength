@@ -14,7 +14,7 @@
 ---
 
 ## Installation  
-1. Download the latest release from the [Releases](#) section.  
+1. Download the latest release from the [Releases](../../releases) section.  
 2. Extract the contents of the ZIP file.  
 3. Load the `.dll` file into AutoCAD using the `NETLOAD` command.  
 
