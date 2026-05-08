@@ -1,75 +1,111 @@
-# CodeHaks TotalLength Add-On  
+# CodeHaks **TotalLength** for AutoCAD
 
-![logo](assets/logo.png)  
-**CodeHaks TotalLength** is an AutoCAD add-on designed to streamline your workflow by calculating the total length of selected objects such as lines, polylines, and arcs. This tool is compatible with **AutoCAD 2024** and **AutoCAD 2025**, providing an intuitive interface to manage selections and quickly gather essential object data.
+![logo](assets/logo.png)
 
----
+[![Build](https://img.shields.io/badge/build-msbuild-blue?logo=.net)](docs/build-and-load.md)
+[![AutoCAD](https://img.shields.io/badge/AutoCAD-2024%20%7C%202025%20%7C%202026-E51E25?logo=autodesk&logoColor=white)](docs/build-and-load.md#autocad-version-matrix)
+[![.NET](https://img.shields.io/badge/.NET-Framework%204.8%20%7C%208.0--windows-512BD4?logo=dotnet&logoColor=white)](docs/architecture.md#target-frameworks)
+[![Platform](https://img.shields.io/badge/platform-Windows%20x64-0078D6?logo=windows&logoColor=white)](#requirements)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](docs/contributing.md)
 
-## Features  
-- **Object Selection**: Easily select specific object types (lines, polylines, arcs).  
-- **Length Calculation**: Displays the total length of selected objects instantly.  
-- **Object Count**: Provides a count of selected objects for better analysis.  
-- **User-Friendly Interface**: A simple, intuitive UI to keep your workflow efficient and productive.  
+**CodeHaks TotalLength** is an AutoCAD .NET add-on that reports the total length of selected `LINE`, `LWPOLYLINE`, and `ARC` entities in the active drawing. The add-on registers an in-AutoCAD command (`ZLen`) and a ribbon entry on the **Codehaks** tab; users pick the object types they care about, run a selection, and see total length plus a count.
 
----
-
-## Installation  
-1. Download the latest release from the [Releases](../../releases) section.  
-2. Extract the contents of the ZIP file.  
-3. Load the `.dll` file into AutoCAD using the `NETLOAD` command.  
+The codebase is built around a single shared-source project that is compiled into three per-AutoCAD-version assemblies — one for AutoCAD 2024 (.NET Framework 4.8) and one each for AutoCAD 2025 / 2026 (.NET 8 on Windows).
 
 ---
 
-## Usage  
-1. Open AutoCAD 2024 or 2025.  
-2. Run the `NETLOAD` command and select the **CodeHaks.TotalLength.dll**.  
-3. Launch the add-on via the ribbon or the command it registers.  
-4. Use the **Object Types** panel to specify which objects to select.  
-5. Click **Select Objects** to begin selection.  
-6. View the total length and object count in the **Total Length** panel.  
+## Highlights
 
-### Commands  
-The following command is available in **CodeHaks TotalLength**:  
-
-- **ZLen**: Launches the main window of the add-on.  
-
-#### How to Use  
-1. In AutoCAD, type `ZLen` in the command prompt.  
-2. Press `Enter` to open the **CodeHaks TotalLength** main window.  
-3. Use the tool to select objects and view the total length and object count.  
-
+- **Selection-aware length reporting** — filters by entity type (`LINE`, `LWPOLYLINE`, `ARC`) and sums curve length using the AutoCAD `Curve` API.
+- **MVVM WPF UI** — modal dialog parented to the AutoCAD main window, bound to a `MainViewModel` with `INotifyPropertyChanged` and `RelayCommand<T>`.
+- **Ribbon integration** — adds a *Codehaks* tab with a *Total Length* button that fires the `ZLen` command via `SendStringToExecute`.
+- **Multi-version build** — one shared project (`src/Shared/`), three thin per-version csprojs that differ only in target framework and AutoCAD reference paths.
+- **Single one-shot builder** — [`build.bat`](build.bat) compiles all targets and collects DLLs into `dist/AutoCAD <year>/`.
 
 ---
 
-## Requirements  
-- **AutoCAD Versions**: AutoCAD 2024 or AutoCAD 2025.  
-- **.NET Framework**: 4.8 or later.  
+## Requirements
+
+| | |
+| :--- | :--- |
+| **OS** | Windows 10 / 11, x64 |
+| **AutoCAD** | 2024, 2025, or 2026 (installed at `C:\Program Files\Autodesk\AutoCAD <year>\`) |
+| **.NET (build-time)** | .NET Framework 4.8 SDK *and* .NET 8 SDK |
+| **Build tools** | MSBuild 17+ / Visual Studio 2022 17.8+ |
+
+See [docs/build-and-load.md](docs/build-and-load.md) for the full version matrix.
 
 ---
 
-## Screenshots  
+## Quick start
 
-### Main Window  
-![Main Window Placeholder](assets/main-window.jpg)   
+### Build everything
 
-### AutoCAD Workflow Example  
-![AutoCAD Workflow Placeholder](assets/acad-example.jpg)  
+```bat
+build.bat              :: Release into dist\AutoCAD 2024|2025|2026\
+build.bat Debug        :: Debug build
+```
+
+Or build a single target:
+
+```bat
+msbuild "src\TotalLength 2026\TotalLength 2026.csproj" /p:Configuration=Release
+```
+
+### Load into AutoCAD
+
+1. Launch AutoCAD 2024, 2025, or 2026.
+2. Run the `NETLOAD` command.
+3. Pick `dist\AutoCAD <year>\codehaks.TotalLength.dll`.
+4. Either run the `ZLen` command, or click **Codehaks ▸ Total Length** on the ribbon.
+
+Full walkthrough: [docs/build-and-load.md](docs/build-and-load.md).
 
 ---
 
-## Support  
-For issues or feature requests, please open an issue in this repository or contact us via email at [support@codehaks.com](mailto:support@codehaks.com).  
+## In-AutoCAD commands
+
+| Command | Description |
+| :--- | :--- |
+| `ZLen` | Opens the **Total Length** WPF dialog (modal to AutoCAD). |
+| `DrawCircle` | *(Debug builds only)* — draws a fixed-radius circle; used as a smoke-test command during development. |
 
 ---
 
-## License  
-This project is licensed under the [MIT License](LICENSE).  
+## Documentation
 
---- 
+| Document | What's inside |
+| :--- | :--- |
+| [docs/architecture.md](docs/architecture.md) | High-level design, layering, namespaces, AutoCAD interop notes. |
+| [docs/build-and-load.md](docs/build-and-load.md) | Build pipeline, version matrix, `NETLOAD` instructions. |
+| [docs/developer-guide.md](docs/developer-guide.md) | Day-to-day development workflow, code map, debugging in AutoCAD. |
+| [docs/testing.md](docs/testing.md) | How to add unit tests and integration tests against AutoCAD APIs. |
+| [docs/roadmap.md](docs/roadmap.md) | Future ideas, suggested improvements, technical-debt items. |
+| [docs/contributing.md](docs/contributing.md) | Branching, commit conventions, review checklist. |
 
-### Contributions  
-Contributions are welcome! Feel free to fork the repository and submit a pull request for enhancements or bug fixes.  
+---
 
----  
+## Screenshots
 
-**CodeHaks TotalLength** - Simplify your AutoCAD measurements today!
+### Main Window
+![Main Window Placeholder](assets/main-window.jpg)
+
+### AutoCAD Workflow Example
+![AutoCAD Workflow Placeholder](assets/acad-example.jpg)
+
+---
+
+## Support
+
+Open an issue on the GitHub repo, or email **[support@codehaks.com](mailto:support@codehaks.com)**.
+
+---
+
+## License
+
+Released under the [MIT License](LICENSE).
+
+---
+
+**CodeHaks TotalLength** — Simplify your AutoCAD measurements.

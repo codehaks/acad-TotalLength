@@ -17,7 +17,11 @@ Target frameworks differ by AutoCAD release:
 - **TotalLength 2026** → `net8.0-windows` (SDK-style csproj, `<UseWPF>true</UseWPF>`).
 
 ```sh
-# Build all AutoCAD versions
+# Build all AutoCAD versions and collect DLLs into .\dist\AutoCAD <year>\
+build.bat                # Release (default)
+build.bat Debug          # Debug
+
+# Or invoke msbuild directly
 msbuild Acad-TotalLength.sln /p:Configuration=Release
 
 # Build a single AutoCAD target
