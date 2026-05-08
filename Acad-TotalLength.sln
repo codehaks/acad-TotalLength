@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TotalLength 2024", "src\Tot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TotalLength 2025", "src\TotalLength 2025\TotalLength 2025.csproj", "{79E05FB7-7FC2-54A6-A7ED-DB1628870AD7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TotalLength 2026", "src\TotalLength 2026\TotalLength 2026.csproj", "{0892BC0E-4F13-4D25-85BA-88309375BDE5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{79E05FB7-7FC2-54A6-A7ED-DB1628870AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79E05FB7-7FC2-54A6-A7ED-DB1628870AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79E05FB7-7FC2-54A6-A7ED-DB1628870AD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0892BC0E-4F13-4D25-85BA-88309375BDE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0892BC0E-4F13-4D25-85BA-88309375BDE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0892BC0E-4F13-4D25-85BA-88309375BDE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0892BC0E-4F13-4D25-85BA-88309375BDE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,5 +40,6 @@ Global
 		src\Shared\Shared.projitems*{3f97e210-d2c6-451a-b24e-277506791565}*SharedItemsImports = 13
 		src\Shared\Shared.projitems*{79e05fb7-7fc2-54a6-a7ed-db1628870ad7}*SharedItemsImports = 5
 		src\Shared\Shared.projitems*{d534069e-b897-47c6-93fd-6b71b2d249af}*SharedItemsImports = 4
+		src\Shared\Shared.projitems*{0892bc0e-4f13-4d25-85ba-88309375bde5}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

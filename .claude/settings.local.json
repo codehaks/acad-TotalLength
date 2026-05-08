@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Dev\\\\Auxalia\\\\Next\\\\legacy\\\\code\\\\plugins\\\\referenced-element-planner\\\\WPF\\\\WPFReferencedElementPlaner\" -Recurse -Force)",
+      "Bash(Select-Object FullName)",
+      "PowerShell($path = \"C:\\\\Dev\\\\Auxalia\\\\Next\\\\legacy\\\\code\\\\plugins\\\\referenced-element-planner\\\\WPF\\\\WPFReferencedElementPlaner\"; Get-ChildItem -Path $path -Recurse -Force | Select-Object FullName | ForEach-Object { $_.FullName })",
+      "Bash(Get-ChildItem -Path \"c:\\\\Dev\\\\my-repos\\\\acad-TotalLength\\\\src\\\\TotalLength 2024\" -Recurse)",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Dev\\\\my-repos\\\\acad-TotalLength\\\\src\\\\TotalLength 2024\" -Recurse | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Dev\\\\my-repos\\\\acad-TotalLength\\\\src\\\\TotalLength 2025\" -Recurse | ForEach-Object { $_.FullName })",
+      "PowerShell([guid]::NewGuid\\(\\).ToString\\(\\).ToUpper\\(\\))"
+    ]
+  }
+}
