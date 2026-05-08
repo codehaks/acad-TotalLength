@@ -2,6 +2,7 @@
 
 ![logo](assets/logo.png)
 
+[![CI](https://github.com/codehaks/acad-TotalLength/actions/workflows/ci.yml/badge.svg)](https://github.com/codehaks/acad-TotalLength/actions/workflows/ci.yml)
 [![Build](https://img.shields.io/badge/build-msbuild-blue?logo=.net)](docs/build-and-load.md)
 [![AutoCAD](https://img.shields.io/badge/AutoCAD-2024%20%7C%202025%20%7C%202026-E51E25?logo=autodesk&logoColor=white)](docs/build-and-load.md#autocad-version-matrix)
 [![.NET](https://img.shields.io/badge/.NET-Framework%204.8%20%7C%208.0--windows-512BD4?logo=dotnet&logoColor=white)](docs/architecture.md#target-frameworks)

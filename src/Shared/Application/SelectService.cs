@@ -6,7 +6,7 @@ using System;
 
 namespace MyApp.Services;
 
-public class SelectService
+public class SelectService : ISelectService
 {
     public (int SelectedCount, double TotalLength, string Message) SelectObjects(SelectOptions selectOptions)
     {

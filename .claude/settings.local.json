@@ -7,7 +7,13 @@
       "Bash(Get-ChildItem -Path \"c:\\\\Dev\\\\my-repos\\\\acad-TotalLength\\\\src\\\\TotalLength 2024\" -Recurse)",
       "PowerShell(Get-ChildItem -Path \"c:\\\\Dev\\\\my-repos\\\\acad-TotalLength\\\\src\\\\TotalLength 2024\" -Recurse | ForEach-Object { $_.FullName })",
       "PowerShell(Get-ChildItem -Path \"c:\\\\Dev\\\\my-repos\\\\acad-TotalLength\\\\src\\\\TotalLength 2025\" -Recurse | ForEach-Object { $_.FullName })",
-      "PowerShell([guid]::NewGuid\\(\\).ToString\\(\\).ToUpper\\(\\))"
+      "PowerShell([guid]::NewGuid\\(\\).ToString\\(\\).ToUpper\\(\\))",
+      "Bash(dotnet test *)",
+      "Bash(git remote *)",
+      "Bash(\"/c/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/MSBuild.exe\" \"src/TotalLength 2026/TotalLength 2026.csproj\" /p:Configuration=Release /v:minimal /nologo)",
+      "Bash(where msbuild *)",
+      "PowerShell($msb = \\(Get-ChildItem 'C:\\\\Program Files\\\\Microsoft Visual Studio\\\\2022' -ErrorAction SilentlyContinue -Recurse -Filter MSBuild.exe -Depth 6 | Select-Object -First 1\\).FullName; \"$msb\")",
+      "Bash(dotnet msbuild *)"
     ]
   }
 }

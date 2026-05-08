@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)AcadApplication.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AcadCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)application\ISelectService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)application\SelectService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Commands\DrawCircleCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\RelayCommand.cs" />
@@ -18,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\Ribbons\RibbonMainCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\Ribbons\RibbonManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\ViewModels\MainViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\ViewModels\MainViewModel.Composition.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>

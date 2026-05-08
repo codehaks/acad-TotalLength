@@ -1,6 +1,4 @@
-﻿using Autodesk.AutoCAD.DatabaseServices;
-using Autodesk.AutoCAD.EditorInput;
-using MyApp.Common;
+﻿using MyApp.Common;
 using MyApp.Core;
 using MyApp.Services;
 using System;
@@ -8,24 +6,24 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
-using Application = Autodesk.AutoCAD.ApplicationServices.Application;
 
 
 namespace MyApp.Presentation.ViewModels;
 
-public class MainViewModel : INotifyPropertyChanged
+public partial class MainViewModel : INotifyPropertyChanged
 {
-    private readonly SelectService _selectService;
+    private readonly ISelectService _selectService;
 
-    public MainViewModel()
+    public MainViewModel(ISelectService selectService)
     {
+        _selectService = selectService ?? throw new ArgumentNullException(nameof(selectService));
+
         OkCommand = new RelayCommand<Window>(ExecuteOkCommand, CanExecuteOkCommand);
         CancelCommand = new RelayCommand<Window>(ExecuteCancelCommand);
 
         SelectCommand = new RelayCommand<object>(ExecuteSelectCommand);
 
         _statusMessage = "Started";
-        _selectService = new SelectService();
 
         SelectOptions = new SelectOptions
         {

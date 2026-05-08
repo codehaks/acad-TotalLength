@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  unit-tests:
+    name: Unit tests
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore
+        run: dotnet restore tests/TotalLength.UnitTests/TotalLength.UnitTests.csproj
+
+      - name: Build
+        run: dotnet build tests/TotalLength.UnitTests/TotalLength.UnitTests.csproj --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test tests/TotalLength.UnitTests/TotalLength.UnitTests.csproj --configuration Release --no-build --logger "trx;LogFileName=test-results.trx"
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: tests/TotalLength.UnitTests/TestResults/*.trx
